@@ -243,6 +243,88 @@
 
 
   
+    <article id="post-java垃圾回收机制及finalize-方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/07/java垃圾回收机制及finalize-方法/">java垃圾回收机制及finalize()方法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/07/java垃圾回收机制及finalize-方法/" class="archive-article-date">
+  	<time datetime="2018-07-07T03:51:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>程序员都了解初始化的重要性，但常常会忘记同样也重要的清理工作，在使用完一个对象以后就“弃之不顾”的做法并非总是安全的。</p>
+</blockquote>
+<h2 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h2><p>  当然，java与C、C++不同，它有垃圾回收器负责回收无用对象占据的内存资源，但是也有特殊情况，假定你的对象（并非使用new)获得了一块“特殊”的内存区域，由于垃圾回收器只知道释放那些经由new分配的内存，所以它不知怎么去释放这块内存。为了应对这种情况，<br>java允许在类中定义一个名为finalize()的方法。</p>
+<h2 id="finalize-什么时候被调用？"><a href="#finalize-什么时候被调用？" class="headerlink" title="finalize()什么时候被调用？"></a>finalize()什么时候被调用？</h2><p>  一旦垃圾回收器准备好释放对象占用的存储空间，将首先调用其finalize()方法，并且在下一次垃圾回收动作发生时，才会真正回收对象占用的内存。所以，finalize（）方法能在垃圾回收时刻做一些重要的清理工作。</p>
+<h2 id="finalize的用途"><a href="#finalize的用途" class="headerlink" title="finalize的用途"></a>finalize的用途</h2><ul>
+<li><p><strong>由于java中一切皆对象，上面提到的特殊情况是怎么回事呢？</strong></p>
+        
+          <a class="article-more-a" href="/2018/07/07/java垃圾回收机制及finalize-方法/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">finalize</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/07/java垃圾回收机制及finalize-方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -431,6 +513,10 @@ MathJax.Hub.Queue(function() {
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">finalize</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
