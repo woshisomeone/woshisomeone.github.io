@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | woshisomeone</title>
+  <title>java垃圾回收机制及finalize()方法 | woshisomeone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="woshisomeone">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="程序员都了解初始化的重要性，但常常会忘记同样也重要的清理工作，在使用完一个对象以后就“弃之不顾”的做法并非总是安全的。  垃圾回收器  当然，java与C、C++不同，它有垃圾回收器负责回收无用对象占据的内存资源，但是也有特殊情况，假定你的对象（并非使用new)获得了一块“特殊”的内存区域，由于垃圾回收器只知道释放那些经由new分配的内存，所以它不知怎么去释放这块内存。为了应对这种情况，java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java垃圾回收机制及finalize()方法">
+<meta property="og:url" content="http://yoursite.com/2018/07/07/垃圾回收器/index.html">
 <meta property="og:site_name" content="woshisomeone">
+<meta property="og:description" content="程序员都了解初始化的重要性，但常常会忘记同样也重要的清理工作，在使用完一个对象以后就“弃之不顾”的做法并非总是安全的。  垃圾回收器  当然，java与C、C++不同，它有垃圾回收器负责回收无用对象占据的内存资源，但是也有特殊情况，假定你的对象（并非使用new)获得了一块“特殊”的内存区域，由于垃圾回收器只知道释放那些经由new分配的内存，所以它不知怎么去释放这块内存。为了应对这种情况，java">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-07T03:51:57.575Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="woshisomeone">
+<meta name="twitter:title" content="java垃圾回收机制及finalize()方法">
+<meta name="twitter:description" content="程序员都了解初始化的重要性，但常常会忘记同样也重要的清理工作，在使用完一个对象以后就“弃之不顾”的做法并非总是安全的。  垃圾回收器  当然，java与C、C++不同，它有垃圾回收器负责回收无用对象占据的内存资源，但是也有特殊情况，假定你的对象（并非使用new)获得了一块“特殊”的内存区域，由于垃圾回收器只知道释放那些经由new分配的内存，所以它不知怎么去释放这块内存。为了应对这种情况，java">
   
     <link rel="alternative" href="/atom.xml" title="woshisomeone" type="application/atom+xml">
   
@@ -160,76 +164,174 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-垃圾回收器" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      java垃圾回收机制及finalize()方法
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/07/垃圾回收器/" class="archive-article-date">
+
+        
+        <a href="/2018/07/07/垃圾回收器/" class="archive-article-date">
   	<time datetime="2018-07-07T03:51:57.575Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/07/垃圾回收器/">java垃圾回收机制及finalize()方法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>程序员都了解初始化的重要性，但常常会忘记同样也重要的清理工作，在使用完一个对象以后就“弃之不顾”的做法并非总是安全的。</p>
+</blockquote>
+<h2 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h2><p>  当然，java与C、C++不同，它有垃圾回收器负责回收无用对象占据的内存资源，但是也有特殊情况，假定你的对象（并非使用new)获得了一块“特殊”的内存区域，由于垃圾回收器只知道释放那些经由new分配的内存，所以它不知怎么去释放这块内存。为了应对这种情况，<br>java允许在类中定义一个名为finalize()的方法。</p>
+<h2 id="finalize-什么时候被调用？"><a href="#finalize-什么时候被调用？" class="headerlink" title="finalize()什么时候被调用？"></a>finalize()什么时候被调用？</h2><p>  一旦垃圾回收器准备好释放对象占用的存储空间，将首先调用其finalize()方法，并且在下一次垃圾回收动作发生时，才会真正回收对象占用的内存。所以，finalize（）方法能在垃圾回收时刻做一些重要的清理工作。</p>
+<h2 id="finalize的用途"><a href="#finalize的用途" class="headerlink" title="finalize的用途"></a>finalize的用途</h2><ul>
+<li><p><strong>由于java中一切皆对象，上面提到的特殊情况是怎么回事呢？</strong></p>
+<p>   事实上，出现上面那种情况，是由于在分配内存的时候可能采用了类似C语言的做法，<br>   而非java中的通常做法，这种情况通常发生在使用“本地方法”的情况下。 </p>
+</li>
+<li><p><strong>本地方法是什么？</strong></p>
+<p>  本地方法是一种在java中调用非java代码的方式。本地方法目前只支持C和C++，但它们可以调用其他语言写的代码，所以实际上java可以调用任何代码。在非java代码中，可能会调用C的malloc()函数来分配内存，而且除非调用free（）函数，否则存储空间得不到是否，从而造成内存泄漏。</p>
+</li>
+<li><p><strong>finalize中如何释放本地方法分配的内存空间</strong>？</p>
+<p>  由于free()是C和C++中的函数，所以需要在finalize方法中用本地方法free（）函数去释放。</p>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过上面的描述，相信读者已经明白finalize（）方法不是进行普通清理工作的场所。那普通的清理工作应该在哪里执行呢？下次讨论咯。</p>
+<hr>
+<p>注： 以上大部分内容来源与《java编程思想第四版》</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/07/垃圾回收器/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/04/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-04T03:53:41.735Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/04/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">My first blog</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/04/hello-world/">My first blog</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -257,8 +359,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
