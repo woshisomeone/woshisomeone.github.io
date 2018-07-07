@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="woshisomeone">
 <meta property="og:description" content="程序员都了解初始化的重要性，但常常会忘记同样也重要的清理工作，在使用完一个对象以后就“弃之不顾”的做法并非总是安全的。  垃圾回收器  当然，java与C、C++不同，它有垃圾回收器负责回收无用对象占据的内存资源，但是也有特殊情况，假定你的对象（并非使用new)获得了一块“特殊”的内存区域，由于垃圾回收器只知道释放那些经由new分配的内存，所以它不知怎么去释放这块内存。为了应对这种情况，java">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-07T05:16:43.169Z">
+<meta property="og:updated_time" content="2018-07-07T05:34:03.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java垃圾回收机制及finalize()方法">
 <meta name="twitter:description" content="程序员都了解初始化的重要性，但常常会忘记同样也重要的清理工作，在使用完一个对象以后就“弃之不顾”的做法并非总是安全的。  垃圾回收器  当然，java与C、C++不同，它有垃圾回收器负责回收无用对象占据的内存资源，但是也有特殊情况，假定你的对象（并非使用new)获得了一块“特殊”的内存区域，由于垃圾回收器只知道释放那些经由new分配的内存，所以它不知怎么去释放这块内存。为了应对这种情况，java">
@@ -188,7 +188,7 @@
         <blockquote>
 <p>程序员都了解初始化的重要性，但常常会忘记同样也重要的清理工作，在使用完一个对象以后就“弃之不顾”的做法并非总是安全的。</p>
 </blockquote>
-<h2 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h2><p>  当然，java与C、C++不同，它有垃圾回收器负责回收无用对象占据的内存资源，但是也有特殊情况，假定你的对象（并非使用new)获得了一块“特殊”的内存区域，由于垃圾回收器只知道释放那些经由new分配的内存，所以它不知怎么去释放这块内存。为了应对这种情况，<br>java允许在类中定义一个名为finalize()的方法。</p>
+<h2 id="垃圾回收器"><a href="#垃圾回收器" class="headerlink" title="垃圾回收器"></a>垃圾回收器</h2><p>  当然，java与C、C++不同，它有垃圾回收器负责回收无用对象占据的内存资源，但是也有特殊情况，假定你的对象（并非使用new)获得了一块“特殊”的内存区域，由于垃圾回收器只知道释放那些经由new分配的内存，所以它不知怎么去释放这块内存。为了应对这种情况，java允许在类中定义一个名为finalize()的方法。</p>
 <h2 id="finalize-什么时候被调用？"><a href="#finalize-什么时候被调用？" class="headerlink" title="finalize()什么时候被调用？"></a>finalize()什么时候被调用？</h2><p>  一旦垃圾回收器准备好释放对象占用的存储空间，将首先调用其finalize()方法，并且在下一次垃圾回收动作发生时，才会真正回收对象占用的内存。所以，finalize（）方法能在垃圾回收时刻做一些重要的清理工作。</p>
 <h2 id="finalize的用途"><a href="#finalize的用途" class="headerlink" title="finalize的用途"></a>finalize的用途</h2><ul>
 <li><p><strong>由于java中一切皆对象，上面提到的特殊情况是怎么回事呢？</strong></p>
