@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | woshisomeone</title>
+  <title>fianlize的一个有趣用法 | woshisomeone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="woshisomeone">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="在java中，“垃圾回收”不保证一定会发生。如果java虚拟机并未面临内存耗尽的情形，它是不会浪费时间去执行垃圾回收以恢复内存的。  finalize()的有趣用法用于查看某些类对象的状态。因为，fianlize（）会在垃圾回收之前进行，所以我们可以在这个方法中写一下我们想要了解的某些对象的状态是什么，那么当java虚拟机面临内存耗尽的时候我们可以知道：我们是不是对某个对象遗漏了某些操作。例如，">
+<meta name="keywords" content="finalize">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fianlize的一个有趣用法">
+<meta property="og:url" content="http://yoursite.com/2018/07/08/fianlize的一个有趣用法/index.html">
 <meta property="og:site_name" content="woshisomeone">
+<meta property="og:description" content="在java中，“垃圾回收”不保证一定会发生。如果java虚拟机并未面临内存耗尽的情形，它是不会浪费时间去执行垃圾回收以恢复内存的。  finalize()的有趣用法用于查看某些类对象的状态。因为，fianlize（）会在垃圾回收之前进行，所以我们可以在这个方法中写一下我们想要了解的某些对象的状态是什么，那么当java虚拟机面临内存耗尽的时候我们可以知道：我们是不是对某个对象遗漏了某些操作。例如，">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-08T05:01:13.612Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="woshisomeone">
+<meta name="twitter:title" content="fianlize的一个有趣用法">
+<meta name="twitter:description" content="在java中，“垃圾回收”不保证一定会发生。如果java虚拟机并未面临内存耗尽的情形，它是不会浪费时间去执行垃圾回收以恢复内存的。  finalize()的有趣用法用于查看某些类对象的状态。因为，fianlize（）会在垃圾回收之前进行，所以我们可以在这个方法中写一下我们想要了解的某些对象的状态是什么，那么当java虚拟机面临内存耗尽的时候我们可以知道：我们是不是对某个对象遗漏了某些操作。例如，">
   
     <link rel="alternative" href="/atom.xml" title="woshisomeone" type="application/atom+xml">
   
@@ -160,36 +165,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-fianlize的一个有趣用法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      fianlize的一个有趣用法
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/08/fianlize的一个有趣用法/" class="archive-article-date">
+
+        
+        <a href="/2018/07/08/fianlize的一个有趣用法/" class="archive-article-date">
   	<time datetime="2018-07-08T02:43:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-08</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/08/fianlize的一个有趣用法/">fianlize的一个有趣用法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>在java中，“垃圾回收”不保证一定会发生。如果java虚拟机并未面临内存耗尽的情形，它是不会浪费时间去执行垃圾回收以恢复内存的。</p>
+</blockquote>
+<h2 id="finalize-的有趣用法"><a href="#finalize-的有趣用法" class="headerlink" title="finalize()的有趣用法"></a>finalize()的有趣用法</h2><p>用于查看某些类对象的状态。因为，fianlize（）会在垃圾回收之前进行，所以我们可以在这个方法中写一下我们想要了解的某些对象的状态是什么，那么当java虚拟机面临内存耗尽的时候我们可以知道：我们是不是对某个对象遗漏了某些操作。<br>例如，对象代表了一个已经打开了的文件（文件资源不属于垃圾回收器的回收范围），在对象被销毁之前，我们应该关闭文件，但是因为某些原因我们忘记了，同时虚拟机还没有面临内存耗尽，那么我们可能很难发现这个缺陷。但是，如果在finalize方法中判断一下这个对象的状态是否是关闭的，当进行垃圾回收的时候我们还是有可能发现这个问题，并解决的。</p>
+<h2 id="让finalize-一定会执行"><a href="#让finalize-一定会执行" class="headerlink" title="让finalize()一定会执行"></a>让finalize()一定会执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class TestFile &#123;</span><br><span class="line">	@Override</span><br><span class="line">	protected void finalize() throws Throwable &#123;</span><br><span class="line">		System.out.println(&quot;finalize&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		new TestFile();//这个对象未被引用，属于无用对象</span><br><span class="line">		System.gc();//强制进行垃圾回收</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：finalize</p>
+<h3 id="例子：写一个Tank（油箱）类，此类有两个状态，空的和满的；其清理条件是：当油箱为空的时候才清理该对象。请编写finalize-以检验清理条件是否成立。在main方法中测试Tank可能发生的几种使用方式。"><a href="#例子：写一个Tank（油箱）类，此类有两个状态，空的和满的；其清理条件是：当油箱为空的时候才清理该对象。请编写finalize-以检验清理条件是否成立。在main方法中测试Tank可能发生的几种使用方式。" class="headerlink" title="例子：写一个Tank（油箱）类，此类有两个状态，空的和满的；其清理条件是：当油箱为空的时候才清理该对象。请编写finalize()以检验清理条件是否成立。在main方法中测试Tank可能发生的几种使用方式。"></a>例子：写一个Tank（油箱）类，此类有两个状态，空的和满的；其清理条件是：当油箱为空的时候才清理该对象。请编写finalize()以检验清理条件是否成立。在main方法中测试Tank可能发生的几种使用方式。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Tank &#123;</span><br><span class="line">	boolean full=true;</span><br><span class="line">	</span><br><span class="line">	public Tank(boolean full) &#123;</span><br><span class="line">		full=true;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	protected void finalize() throws Throwable &#123;</span><br><span class="line">		if(full)</span><br><span class="line">		  System.out.println(&quot;error:水箱不为空，不能清理&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public void used() &#123;</span><br><span class="line">		full=false;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Tank t=new Tank(true);</span><br><span class="line">		t.used();//用完了，为空</span><br><span class="line">	    new Tank(true);//忘了使用，不为空</span><br><span class="line">		System.gc();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：error:水箱不为空，不能清理</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>所以，finalize()可以用于验证某个对象的清理条件。</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,84 +234,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/08/fianlize的一个有趣用法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/07/java垃圾回收机制及finalize-方法/" class="archive-article-date">
-  	<time datetime="2018-07-07T03:51:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/07/java垃圾回收机制及finalize-方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java垃圾回收机制及finalize()方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/07/java垃圾回收机制及finalize-方法/">java垃圾回收机制及finalize()方法</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">finalize</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/04/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-04T03:53:41.735Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/04/hello-world/">My first blog</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -306,8 +361,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
