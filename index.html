@@ -198,7 +198,7 @@
 <li>RDB是默认开启的，在redis配置文件中有：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dbfilename dump.rdb（保存的文件名）</span><br><span class="line">dir ./（保存的路径）</span><br><span class="line">save 900 1(更改了1个key，900s后会将数据写入临时文件)</span><br><span class="line">save 300 10 （更改了10个key，300s后会将数据写入临时文件） </span><br><span class="line">save 60 10000</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ul>
+</li>
 <li><p>AOF  </p>
 <ul>
 <li>AOF是指出是否在每次更新操作后进行日志记录将执行过的指令记录下来;如果不开启，可能会在断电时导致一段时间内的数据丢失。开启则数据恢复时按照从前到后的顺序再将指令执行一遍，实现数据恢复。</li>
@@ -210,8 +210,6 @@
 </li>
 <li><p>关于 fsync()方法，配置文件中解释了</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The fsync() call tells the Operating System to actually write data on disk</span><br><span class="line">instead of waiting for more data in the output buffer.</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
 </li>
 </ul>
 <h2 id="redis和memcached的比较"><a href="#redis和memcached的比较" class="headerlink" title="redis和memcached的比较"></a>redis和memcached的比较</h2>
