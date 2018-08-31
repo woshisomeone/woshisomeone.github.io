@@ -189,7 +189,7 @@
 <h2 id="redis的持久化"><a href="#redis的持久化" class="headerlink" title="redis的持久化"></a>redis的持久化</h2><blockquote>
 <p>redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。</p>
 </blockquote>
-<ol>
+<ul>
 <li><p>RDB</p>
 <ul>
 <li>将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持久化文件。</li>
@@ -198,7 +198,7 @@
 <li>RDB是默认开启的，在redis配置文件中有：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dbfilename dump.rdb（保存的文件名）</span><br><span class="line">dir ./（保存的路径）</span><br><span class="line">save 900 1(更改了1个key，900s后会将数据写入临时文件)</span><br><span class="line">save 300 10 （更改了10个key，300s后会将数据写入临时文件） </span><br><span class="line">save 60 10000</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol start="2">
+<ul>
 <li><p>AOF  </p>
 <ul>
 <li>AOF是指出是否在每次更新操作后进行日志记录将执行过的指令记录下来;如果不开启，可能会在断电时导致一段时间内的数据丢失。开启则数据恢复时按照从前到后的顺序再将指令执行一遍，实现数据恢复。</li>
@@ -213,7 +213,7 @@
 </li>
 </ul>
 </li>
-</ol>
+</ul>
 <h2 id="redis和memcached的比较"><a href="#redis和memcached的比较" class="headerlink" title="redis和memcached的比较"></a>redis和memcached的比较</h2>
         
           <a class="article-more-a" href="/2018/08/31/redis相关/#more">more >></a>

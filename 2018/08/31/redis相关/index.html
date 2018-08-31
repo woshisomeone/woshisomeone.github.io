@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="woshisomeone">
 <meta property="og:description" content="redis Redis 是一个高性能的key-value数据库,支持主从同步。适合会话缓存，排行榜，页面缓存等应用场景。  redis的持久化 redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。   RDB  将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-31T08:59:01.187Z">
+<meta property="og:updated_time" content="2018-08-31T09:01:02.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis相关">
 <meta name="twitter:description" content="redis Redis 是一个高性能的key-value数据库,支持主从同步。适合会话缓存，排行榜，页面缓存等应用场景。  redis的持久化 redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。   RDB  将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持">
@@ -191,7 +191,7 @@
 <h2 id="redis的持久化"><a href="#redis的持久化" class="headerlink" title="redis的持久化"></a>redis的持久化</h2><blockquote>
 <p>redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。</p>
 </blockquote>
-<ol>
+<ul>
 <li><p>RDB</p>
 <ul>
 <li>将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持久化文件。</li>
@@ -200,7 +200,7 @@
 <li>RDB是默认开启的，在redis配置文件中有：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dbfilename dump.rdb（保存的文件名）</span><br><span class="line">dir ./（保存的路径）</span><br><span class="line">save 900 1(更改了1个key，900s后会将数据写入临时文件)</span><br><span class="line">save 300 10 （更改了10个key，300s后会将数据写入临时文件） </span><br><span class="line">save 60 10000</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol start="2">
+<ul>
 <li><p>AOF  </p>
 <ul>
 <li>AOF是指出是否在每次更新操作后进行日志记录将执行过的指令记录下来;如果不开启，可能会在断电时导致一段时间内的数据丢失。开启则数据恢复时按照从前到后的顺序再将指令执行一遍，实现数据恢复。</li>
@@ -215,7 +215,7 @@
 </li>
 </ul>
 </li>
-</ol>
+</ul>
 <h2 id="redis和memcached的比较"><a href="#redis和memcached的比较" class="headerlink" title="redis和memcached的比较"></a>redis和memcached的比较</h2><a id="more"></a>
 <ul>
 <li>memcached是一个分布式的内存对象缓冲系统，基于key-value存储，用来存储小块的内存数据（对象，字符串）；value的最大长度为1MB.</li>
@@ -223,7 +223,7 @@
 <li>二者优点：通过缓存数据库查询结果，减少访问数据库的次数，提高动态web的速度。</li>
 </ul>
 </li>
-</ol>
+</ul>
 <h2 id="redis和Mysql的区别"><a href="#redis和Mysql的区别" class="headerlink" title="redis和Mysql的区别"></a>redis和Mysql的区别</h2><ul>
 <li>mysql是关系型数据库，是持久化存储，查询检索操作会涉及IO操作，数据访问速度慢。</li>
 <li>redis则是非关系型数据库，数据缓存在内存中，但是可以刷新到硬盘上使之持久化，数据访问数据快。</li>
