@@ -205,13 +205,16 @@
 <li>AOF是指出是否在每次更新操作后进行日志记录将执行过的指令记录下来;如果不开启，可能会在断电时导致一段时间内的数据丢失。开启则数据恢复时按照从前到后的顺序再将指令执行一遍，实现数据恢复。</li>
 <li>优点：可以保持更高的数据完整性，如果设置追加file的时间是1s，如果redis发生故障，最多会丢失1s的数据；且如果日志写入不完整支持redis-check-aof来进行日志修复；AOF文件没被rewrite之前（文件过大时会对命令进行合并重写），可以删除其中的某些命令（比如误操作的flushall）。</li>
 <li>缺点：AOF文件比RDB文件大，且恢复速度慢。</li>
-<li><p>AOF默认关闭，开启方法，修改配置文件reds.conf：<figure class="highlight plain"><figcaption><span>yes```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 同步方式相关的配置</span><br></pre></td></tr></table></figure></p>
-<p>  appendfilename “appendonly.aof”（文件名）</p>
-<h1 id="appendfsync-always-一旦插入命令，立即同步到磁盘，保证了完全的持久化，但是速度慢"><a href="#appendfsync-always-一旦插入命令，立即同步到磁盘，保证了完全的持久化，但是速度慢" class="headerlink" title="appendfsync always (一旦插入命令，立即同步到磁盘，保证了完全的持久化，但是速度慢)"></a>appendfsync always (一旦插入命令，立即同步到磁盘，保证了完全的持久化，但是速度慢)</h1><pre><code>appendfsync everysec(AOF每秒进行同步,默认)
-</code></pre><h1 id="appendfsync-no（表示不执行fsync，由操作系统保证数据同步到磁盘，速度最快）"><a href="#appendfsync-no（表示不执行fsync，由操作系统保证数据同步到磁盘，速度最快）" class="headerlink" title="appendfsync no（表示不执行fsync，由操作系统保证数据同步到磁盘，速度最快）"></a>appendfsync no（表示不执行fsync，由操作系统保证数据同步到磁盘，速度最快）</h1>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 关于 fsync()方法，配置文件中解释了</span><br></pre></td></tr></table></figure>
-<h1 id="The-fsync-call-tells-the-Operating-System-to-actually-write-data-on-disk"><a href="#The-fsync-call-tells-the-Operating-System-to-actually-write-data-on-disk" class="headerlink" title="The fsync() call tells the Operating System to actually write data on disk"></a>The fsync() call tells the Operating System to actually write data on disk</h1><p>  instead of waiting for more data in the output buffer.<br>  （调用这个方法就是告诉操作系统将数据写道硬盘上）<br><code>`</code></p>
-<h2 id="redis和memcached的比较"><a href="#redis和memcached的比较" class="headerlink" title="redis和memcached的比较"></a>redis和memcached的比较</h2></li>
+<li>AOF默认关闭</li>
+<li><p>同步方式相关的配置</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> appendonly yes</span><br><span class="line">appendfilename &quot;appendonly.aof&quot;（文件名）</span><br><span class="line">appendfsync always (一旦插入命令，立即同步到磁盘，保证了完全的持久化，但是速度慢)</span><br><span class="line">appendfsync everysec(AOF每秒进行同步,默认)</span><br><span class="line">appendfsync no（表示不执行fsync，由操作系统保证数据同步到磁盘，速度最快）</span><br></pre></td></tr></table></figure>
+<ul>
+<li>关于 fsync()方法，配置文件中解释了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  The fsync() call tells the Operating System to actually write data on disk</span><br><span class="line">  instead of waiting for more data in the output buffer.</span><br><span class="line">（调用这个方法就是告诉操作系统将数据写道硬盘上）</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+</li>
+</ul>
+<h2 id="redis和memcached的比较"><a href="#redis和memcached的比较" class="headerlink" title="redis和memcached的比较"></a>redis和memcached的比较</h2>
         
           <a class="article-more-a" href="/2018/08/31/redis相关/#more">more >></a>
         
