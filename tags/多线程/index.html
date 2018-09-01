@@ -6,20 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>redis相关 | woshisomeone</title>
+  <title>Tag: 多线程 | woshisomeone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Redis 是一个高性能的key-value数据库,支持主从同步。适合会话缓存，排行榜，页面缓存等应用场景。  redis的持久化 redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。   RDB  将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持久化文件。">
-<meta name="keywords" content="redis">
-<meta property="og:type" content="article">
-<meta property="og:title" content="redis相关">
-<meta property="og:url" content="http://yoursite.com/2018/08/31/redis相关/index.html">
+  <meta name="keywords" content="������">
+<meta property="og:type" content="website">
+<meta property="og:title" content="woshisomeone">
+<meta property="og:url" content="http://yoursite.com/tags/多线程/index.html">
 <meta property="og:site_name" content="woshisomeone">
-<meta property="og:description" content="Redis 是一个高性能的key-value数据库,支持主从同步。适合会话缓存，排行榜，页面缓存等应用场景。  redis的持久化 redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。   RDB  将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持久化文件。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-31T09:09:36.108Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis相关">
-<meta name="twitter:description" content="Redis 是一个高性能的key-value数据库,支持主从同步。适合会话缓存，排行榜，页面缓存等应用场景。  redis的持久化 redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。   RDB  将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持久化文件。">
+<meta name="twitter:title" content="woshisomeone">
   
     <link rel="alternative" href="/atom.xml" title="woshisomeone" type="application/atom+xml">
   
@@ -165,223 +161,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-redis相关" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      redis相关
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/08/31/多线程相关/" class="archive-article-date">
+  	<time datetime="2018-08-31T12:39:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/08/31/多线程相关/">多线程相关</a>
     </h1>
   
 
-        
-        <a href="/2018/08/31/redis相关/" class="archive-article-date">
-  	<time datetime="2018-08-31T04:13:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Redis 是一个高性能的key-value数据库,支持主从同步。适合会话缓存，排行榜，页面缓存等应用场景。</p>
-</blockquote>
-<h2 id="redis的持久化"><a href="#redis的持久化" class="headerlink" title="redis的持久化"></a>redis的持久化</h2><blockquote>
-<p>redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。</p>
-</blockquote>
-<ul>
-<li><p>RDB</p>
-<ul>
-<li>将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持久化文件。</li>
-<li>优点：使用单独的线程进行持久化，主线程不会进行任何的IO操作，保证了redis的高性能；</li>
-<li>缺点：RDB是间隔一段时间进行持久化，如果持久化期间发生了故障会导致数据丢失，所以适合数据要求不是那么严谨的时候。</li>
-<li>RDB是默认开启的，在redis配置文件中有：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dbfilename dump.rdb（保存的文件名）</span><br><span class="line">dir ./（保存的路径）</span><br><span class="line">save 900 1(更改了1个key，900s后会将数据写入临时文件)</span><br><span class="line">save 300 10 （更改了10个key，300s后会将数据写入临时文件） </span><br><span class="line">save 60 10000</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>AOF  </p>
-<ul>
-<li>AOF是指出是否在每次更新操作后进行日志记录将执行过的指令记录下来;如果不开启，可能会在断电时导致一段时间内的数据丢失。开启则数据恢复时按照从前到后的顺序再将指令执行一遍，实现数据恢复。</li>
-<li>优点：可以保持更高的数据完整性，如果设置追加file的时间是1s，如果redis发生故障，最多会丢失1s的数据；且如果日志写入不完整支持redis-check-aof来进行日志修复；AOF文件没被rewrite之前（文件过大时会对命令进行合并重写），可以删除其中的某些命令（比如误操作的flushall）。</li>
-<li>缺点：AOF文件比RDB文件大，且恢复速度慢。</li>
-<li>AOF默认关闭</li>
-<li><p>同步方式相关的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">appendonly yes</span><br><span class="line">appendfilename &quot;appendonly.aof&quot;（文件名）</span><br><span class="line">appendfsync always (一旦插入命令，立即同步到磁盘，保证了完全的持久化，但是速度慢)</span><br><span class="line">appendfsync everysec(AOF每秒进行同步,默认)</span><br><span class="line">appendfsync no（表示不执行fsync，由操作系统保证数据同步到磁盘，速度最快）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>关于 fsync()方法，配置文件中解释了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The fsync() call tells the Operating System to actually write data on disk</span><br><span class="line">instead of waiting for more data in the output buffer.</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="redis和memcached的比较"><a href="#redis和memcached的比较" class="headerlink" title="redis和memcached的比较"></a>redis和memcached的比较</h2><a id="more"></a>
-<ul>
-<li>memcached是一个分布式的内存对象缓冲系统，基于key-value存储，用来存储小块的内存数据（对象，字符串）；value的最大长度为1MB.</li>
-<li>redis也是一个key-value的存储系统，value的最大长度是1GB,但是支持更多的数据类型存储，比如list,String,set,zset和hash,并且这些操作都是原子性的；与memcached一样，为了保证效率都是缓存在内存中，而不同点是：redis会定期将缓存中的数据刷新到硬盘上或者把修改操作追加到appendonly.aof文件中。</li>
-<li>二者优点：通过缓存数据库查询结果，减少访问数据库的次数，提高动态web的速度。</li>
-</ul>
-</li>
-</ul>
-<h2 id="redis和Mysql的区别"><a href="#redis和Mysql的区别" class="headerlink" title="redis和Mysql的区别"></a>redis和Mysql的区别</h2><ul>
-<li>mysql是关系型数据库，是持久化存储，查询检索操作会涉及IO操作，数据访问速度慢。</li>
-<li>redis则是非关系型数据库，数据缓存在内存中，但是可以刷新到硬盘上使之持久化，数据访问数据快。</li>
-<li>在项目中一般是结合redis+mysql.如果数据量大且被频繁用到则用redis缓存，访问数据的时候先访问redis，如果没有再去mysql中查找。</li>
-</ul>
-<h2 id="mongoDB"><a href="#mongoDB" class="headerlink" title="mongoDB"></a>mongoDB</h2><ul>
-<li>MongoDB是面向文档存储的数据库，数据结构是键值对组成，Mongodb文档（格式为BJSON）类似与json对象，</li>
-<li>面向集合存储，易存储对象类型的数据。</li>
-<li>优点：查询功能强大，支持类似关系型数据库单表查询的绝大部分功能，而且支持索引，能存海量数据；</li>
-<li>缺点:不支持事务</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/31/redis相关/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/08/31/多线程相关/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          多线程相关
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/08/15/javaWeb相关知识/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">javaWeb相关知识</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -409,9 +242,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

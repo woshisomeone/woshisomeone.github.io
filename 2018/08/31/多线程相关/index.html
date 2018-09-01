@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>redis相关 | woshisomeone</title>
+  <title>多线程相关 | woshisomeone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Redis 是一个高性能的key-value数据库,支持主从同步。适合会话缓存，排行榜，页面缓存等应用场景。  redis的持久化 redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。   RDB  将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持久化文件。">
-<meta name="keywords" content="redis">
+  <meta name="description" content="线程是进程的实体，是cpu调度和分派的最小单位；进程则是系统资源分配的最小单位；进程间的资源是独立的，而同一进程里的线程共享该进程的资源。多线程是为了同时完成多项任务，提高资源的使用效率来提高系统的效率。所以优势在于充分利用cpu的空闲时间片。  主线程和子线程的执行顺序 线程调度的机制和Jdk版本也有关系，新的jdk的版本时间片切割的更好，看上去像是同时进行的而老版本不会频繁对时间切片，因此线">
+<meta name="keywords" content="多线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="redis相关">
-<meta property="og:url" content="http://yoursite.com/2018/08/31/redis相关/index.html">
+<meta property="og:title" content="多线程相关">
+<meta property="og:url" content="http://yoursite.com/2018/08/31/多线程相关/index.html">
 <meta property="og:site_name" content="woshisomeone">
-<meta property="og:description" content="Redis 是一个高性能的key-value数据库,支持主从同步。适合会话缓存，排行榜，页面缓存等应用场景。  redis的持久化 redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。   RDB  将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持久化文件。">
+<meta property="og:description" content="线程是进程的实体，是cpu调度和分派的最小单位；进程则是系统资源分配的最小单位；进程间的资源是独立的，而同一进程里的线程共享该进程的资源。多线程是为了同时完成多项任务，提高资源的使用效率来提高系统的效率。所以优势在于充分利用cpu的空闲时间片。  主线程和子线程的执行顺序 线程调度的机制和Jdk版本也有关系，新的jdk的版本时间片切割的更好，看上去像是同时进行的而老版本不会频繁对时间切片，因此线">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-31T09:09:36.108Z">
+<meta property="og:updated_time" content="2018-09-01T09:46:42.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="redis相关">
-<meta name="twitter:description" content="Redis 是一个高性能的key-value数据库,支持主从同步。适合会话缓存，排行榜，页面缓存等应用场景。  redis的持久化 redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。   RDB  将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持久化文件。">
+<meta name="twitter:title" content="多线程相关">
+<meta name="twitter:description" content="线程是进程的实体，是cpu调度和分派的最小单位；进程则是系统资源分配的最小单位；进程间的资源是独立的，而同一进程里的线程共享该进程的资源。多线程是为了同时完成多项任务，提高资源的使用效率来提高系统的效率。所以优势在于充分利用cpu的空闲时间片。  主线程和子线程的执行顺序 线程调度的机制和Jdk版本也有关系，新的jdk的版本时间片切割的更好，看上去像是同时进行的而老版本不会频繁对时间切片，因此线">
   
     <link rel="alternative" href="/atom.xml" title="woshisomeone" type="application/atom+xml">
   
@@ -165,20 +165,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-redis相关" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-多线程相关" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      redis相关
+      多线程相关
     </h1>
   
 
         
-        <a href="/2018/08/31/redis相关/" class="archive-article-date">
-  	<time datetime="2018-08-31T04:13:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
+        <a href="/2018/08/31/多线程相关/" class="archive-article-date">
+  	<time datetime="2018-08-31T12:39:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
 </a>
         
       </header>
@@ -186,53 +186,36 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>Redis 是一个高性能的key-value数据库,支持主从同步。适合会话缓存，排行榜，页面缓存等应用场景。</p>
+<p>线程是进程的实体，是cpu调度和分派的最小单位；进程则是系统资源分配的最小单位；进程间的资源是独立的，而同一进程里的线程共享该进程的资源。多线程是为了同时完成多项任务，提高资源的使用效率来提高系统的效率。所以优势在于充分利用cpu的空闲时间片。</p>
 </blockquote>
-<h2 id="redis的持久化"><a href="#redis的持久化" class="headerlink" title="redis的持久化"></a>redis的持久化</h2><blockquote>
-<p>redis持久化存储支持两种方法：RDB(Redis DataBase)和AOF（AppendOnly File).没有持久化的redis就是纯内存的数据库。</p>
+<h2 id="主线程和子线程的执行顺序"><a href="#主线程和子线程的执行顺序" class="headerlink" title="主线程和子线程的执行顺序"></a>主线程和子线程的执行顺序</h2><blockquote>
+<p>线程调度的机制和Jdk版本也有关系，新的jdk的版本时间片切割的更好，看上去像是同时进行的而老版本不会频繁对时间切片，因此线程1可能执行完了才执行线程2（以上所说都是在一个处理器的情况下）。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadB extends Thread &#123;</span><br><span class="line">    int total;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void run() &#123;</span><br><span class="line">        System.out.println(Thread.currentThread().getName());</span><br><span class="line">        synchronized (this) &#123;</span><br><span class="line">            System.out.println(&quot;ThreadB is running..&quot;);</span><br><span class="line">            for (int i = 0; i &lt; 100; i++) &#123;</span><br><span class="line">                total += i;</span><br><span class="line">                System.out.println(&quot;total is &quot; + total);</span><br><span class="line">            &#125;</span><br><span class="line">            notify();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadA &#123;</span><br><span class="line">    String name;</span><br><span class="line"></span><br><span class="line">    public ThreadA(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ThreadB b = new ThreadB();</span><br><span class="line">        b.start();</span><br><span class="line">        synchronized (b) &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                System.out.println(&quot;Waiting for b to complete...&quot;);</span><br><span class="line">                b.wait();</span><br><span class="line">                System.out.println(&quot;Completed.Now back to main thread&quot;);</span><br><span class="line">            &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                System.out.println(e.getMessage());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;Total is :&quot; + b.total);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面打印的结果一开始我以为会先执行ThreadB的run方法的打印语句，但是这个想法是错误的，因为还有主线程的存在，由于线程启动需要一段时间，因此会先打印main线程得到cpu并执行方法里面的语句，直到main线程调用wait（）把cpu让出去了，ThreadB才开始执行。</p>
+<h2 id="wait-和notify"><a href="#wait-和notify" class="headerlink" title="wait()和notify()"></a>wait()和notify()</h2><p>当某一个线程正在某一个对象的同步方法中调用了该对象的wait方法，则会释放该对象的独占锁并放入该对象的等待对列；所以在调用wait之前，该线程就必须获得该对象的锁，因此wait必须在同步代码块里面才能用；否则报.IllegalMonitorStateException，没有监视器。直到某个线程调用该对象的notify()或者notifyAll()时才有机会继续进行。（notify是唤醒该对象等待队列上的一个线程，如果有很多个线程在等待就随机唤醒一个；notifyAll是唤醒等待队列上所有的线程，然后这些线程就去竞争资源，谁获得了这个对象的锁才可以继续执行）</p>
+<h2 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h2><p>new Thread()，每次new一个线程会性能差，缺乏统一的管理，缺乏更多的功能入定时执行，定期执行等；而线程池则可以：</p>
 <ul>
-<li><p>RDB</p>
-<ul>
-<li>将数据写入一个临时文件；持久化结束后，这个临时文件替换上次的持久化文件，得到新的持久化文件。</li>
-<li>优点：使用单独的线程进行持久化，主线程不会进行任何的IO操作，保证了redis的高性能；</li>
-<li>缺点：RDB是间隔一段时间进行持久化，如果持久化期间发生了故障会导致数据丢失，所以适合数据要求不是那么严谨的时候。</li>
-<li>RDB是默认开启的，在redis配置文件中有：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dbfilename dump.rdb（保存的文件名）</span><br><span class="line">dir ./（保存的路径）</span><br><span class="line">save 900 1(更改了1个key，900s后会将数据写入临时文件)</span><br><span class="line">save 300 10 （更改了10个key，300s后会将数据写入临时文件） </span><br><span class="line">save 60 10000</span><br></pre></td></tr></table></figure>
-</li>
+<li>重用存在的线程，减少线程创建、消亡的开销；</li>
+<li>可以控制最大并发线程数</li>
+<li>提供定时、定期执行等功能<h3 id="Java的四种线程池（Executors（执行器）创建）"><a href="#Java的四种线程池（Executors（执行器）创建）" class="headerlink" title="Java的四种线程池（Executors（执行器）创建）"></a>Java的四种线程池（Executors（执行器）创建）</h3></li>
+<li>newCachedThreadPool（） 可缓存线程池，可以灵活的创建和回收线程</li>
+<li>newFixedThreadPool（int size） 定长线程池，可以控制最大并发数</li>
+<li>newSchedualThreadPool(int size) 定长线程池，支持定时、定期的执行任务</li>
+<li>newSingleThreadExecutor()单线程化的线程池，只会用唯一个线程工作，保证任务按指定顺序执行（先进先出，后进先出）；可以序列化处理任务。比如有大量线程都需要使用使用文件系统上传文件，为了不会过度使用文件系统，那么可以选择单线程，保证任意时刻只有一个线程在运行。<h2 id="Callable接口"><a href="#Callable接口" class="headerlink" title="Callable接口"></a>Callable接口</h2>如果你希望在线程结束后返回值那么可以用Callable而不是Runnable.<br>Callable是JAVA SE5引进的一种具有类型参数的泛型，类型参数是call里面返回的类型。如果要调用call方法，就需要使用executorService.submit()方法调用，返回的是future对象，用callable返回的类型进行的参数化，可以用isDone查看future是否已经完成。当任务完成时可以用get得到。</li>
 </ul>
-</li>
-<li><p>AOF  </p>
-<ul>
-<li>AOF是指出是否在每次更新操作后进行日志记录将执行过的指令记录下来;如果不开启，可能会在断电时导致一段时间内的数据丢失。开启则数据恢复时按照从前到后的顺序再将指令执行一遍，实现数据恢复。</li>
-<li>优点：可以保持更高的数据完整性，如果设置追加file的时间是1s，如果redis发生故障，最多会丢失1s的数据；且如果日志写入不完整支持redis-check-aof来进行日志修复；AOF文件没被rewrite之前（文件过大时会对命令进行合并重写），可以删除其中的某些命令（比如误操作的flushall）。</li>
-<li>缺点：AOF文件比RDB文件大，且恢复速度慢。</li>
-<li>AOF默认关闭</li>
-<li><p>同步方式相关的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">appendonly yes</span><br><span class="line">appendfilename &quot;appendonly.aof&quot;（文件名）</span><br><span class="line">appendfsync always (一旦插入命令，立即同步到磁盘，保证了完全的持久化，但是速度慢)</span><br><span class="line">appendfsync everysec(AOF每秒进行同步,默认)</span><br><span class="line">appendfsync no（表示不执行fsync，由操作系统保证数据同步到磁盘，速度最快）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>关于 fsync()方法，配置文件中解释了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The fsync() call tells the Operating System to actually write data on disk</span><br><span class="line">instead of waiting for more data in the output buffer.</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="redis和memcached的比较"><a href="#redis和memcached的比较" class="headerlink" title="redis和memcached的比较"></a>redis和memcached的比较</h2><a id="more"></a>
-<ul>
-<li>memcached是一个分布式的内存对象缓冲系统，基于key-value存储，用来存储小块的内存数据（对象，字符串）；value的最大长度为1MB.</li>
-<li>redis也是一个key-value的存储系统，value的最大长度是1GB,但是支持更多的数据类型存储，比如list,String,set,zset和hash,并且这些操作都是原子性的；与memcached一样，为了保证效率都是缓存在内存中，而不同点是：redis会定期将缓存中的数据刷新到硬盘上或者把修改操作追加到appendonly.aof文件中。</li>
-<li>二者优点：通过缓存数据库查询结果，减少访问数据库的次数，提高动态web的速度。</li>
-</ul>
-</li>
-</ul>
-<h2 id="redis和Mysql的区别"><a href="#redis和Mysql的区别" class="headerlink" title="redis和Mysql的区别"></a>redis和Mysql的区别</h2><ul>
-<li>mysql是关系型数据库，是持久化存储，查询检索操作会涉及IO操作，数据访问速度慢。</li>
-<li>redis则是非关系型数据库，数据缓存在内存中，但是可以刷新到硬盘上使之持久化，数据访问数据快。</li>
-<li>在项目中一般是结合redis+mysql.如果数据量大且被频繁用到则用redis缓存，访问数据的时候先访问redis，如果没有再去mysql中查找。</li>
-</ul>
-<h2 id="mongoDB"><a href="#mongoDB" class="headerlink" title="mongoDB"></a>mongoDB</h2><ul>
-<li>MongoDB是面向文档存储的数据库，数据结构是键值对组成，Mongodb文档（格式为BJSON）类似与json对象，</li>
-<li>面向集合存储，易存储对象类型的数据。</li>
-<li>优点：查询功能强大，支持类似关系型数据库单表查询的绝大部分功能，而且支持索引，能存海量数据；</li>
-<li>缺点:不支持事务</li>
-</ul>
+<h4 id="newCachedThreadPool（）举例"><a href="#newCachedThreadPool（）举例" class="headerlink" title="newCachedThreadPool（）举例"></a>newCachedThreadPool（）举例</h4><p> ExecutorService是具有生命周期的executor;<br> shutdown()，执行后不再接收新任务，如果里面有任务，就执行完<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadCallTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> ExecutionException, InterruptedException </span>&#123;</span><br><span class="line">        ExecutorService exec= Executors.newCachedThreadPool();</span><br><span class="line">        Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        Executors.newScheduledThreadPool(<span class="number">5</span>);</span><br><span class="line">        Executors.newSingleThreadScheduledExecutor();</span><br><span class="line">        Future&lt;Integer&gt; sum=exec.submit(<span class="keyword">new</span> ThreadCall());</span><br><span class="line">        exec.shutdown();</span><br><span class="line">        System.out.println(sum.get());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThreadCall</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)</span><br><span class="line">            sum+=i;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="线程的异常逃逸"><a href="#线程的异常逃逸" class="headerlink" title="线程的异常逃逸"></a>线程的异常逃逸</h2><blockquote>
+<p>由于线程的本质特性，使得我们不能捕获从线程中逃逸的异常，一旦异常逃出任务的run（）方法，就会向外传播到控制台。当然这种异常通常是我们不知道的什么适合会发生的<strong>运行时异常</strong>。<br>解决的方法是，java SE5,允许在每个thread对象上附着一个异常处理器Thread.UncaughtExceptionHandler.当线程因为未捕捉异常而临近死亡的时候会调用该处理器的方法。给每个线程都自己加一个异常处理器是很麻烦的，因此可以建一个线程工厂(需要继承并发包下的ThreadFactory)，给每一个线程都自动加上异常处理器。线程工厂就是让工厂帮我们创建线程，当我们需要new一个线程的时候就直接调用工厂的生产方法就可以了。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 单线程的异常处理器设置</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ThreadB b=<span class="keyword">new</span> ThreadB();</span><br><span class="line">        b.setUncaughtExceptionHandler(<span class="keyword">new</span> Thread.UncaughtExceptionHandler() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">uncaughtException</span><span class="params">(Thread t, Throwable e)</span> </span>&#123;</span><br><span class="line">                System.out.println(e+<span class="string">"发生该异常的线程是："</span>+t.getName()+<span class="string">""</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;  </span><br><span class="line">       <span class="comment">// 发生异常时的打印结果：java.lang.RuntimeException发生该异常的线程是：Thread-0</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 线程工厂</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyThreadFactory</span> <span class="keyword">implements</span> <span class="title">ThreadFactory</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Thread <span class="title">newThread</span><span class="params">(Runnable r)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"创建线程"</span>);</span><br><span class="line">         Thread t=<span class="keyword">new</span> Thread(r);</span><br><span class="line">         t.setUncaughtExceptionHandler(<span class="keyword">new</span> Thread.UncaughtExceptionHandler() &#123;</span><br><span class="line">             <span class="meta">@Override</span></span><br><span class="line">             <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">uncaughtException</span><span class="params">(Thread t, Throwable e)</span> </span>&#123;</span><br><span class="line">                 System.out.println(<span class="string">"异常:"</span>+t+<span class="string">"线程名:"</span>+t.getName());</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;);</span><br><span class="line">        <span class="keyword">return</span> t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 线程工厂创建线程</span><br><span class="line"> */</span><br><span class="line">public class TestSynchronized &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ExecutorService executorService= Executors.newCachedThreadPool(new MyThreadFactory());</span><br><span class="line">        executorService.execute(new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                System.out.println(&quot;线程工厂创建的一个带异常处理器的线程&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="synchronized与lock"><a href="#synchronized与lock" class="headerlink" title="synchronized与lock"></a>synchronized与lock</h2><h4 id="sychronized的缺陷"><a href="#sychronized的缺陷" class="headerlink" title="sychronized的缺陷"></a>sychronized的缺陷</h4><ol>
+<li>某个线程在synchronized代码中执行，由于获得了锁对象，其他也需要这个锁对象的线程只能等待这个线程释放锁才可以做自己的事情。如果此时<strong>该线程sleep了</strong>（sleep会让出cpu却不会释放锁）或者等待IO,别的线程只能等啊等，这样线程执行效率会很低；</li>
+<li><strong>多线程的读文件</strong>按道理是不应该加锁，因为多个线程一起读文件并不会对文件造成影响；如果用synchronized对文件加锁（防止多个线程同时写文件或者同时读写文件造成文件内容有问题）就会使一个线程在读文件而别的线程无法读的问题，也会大大影响效率。ReentrantReadWriteLock（可重入读写锁）可以解决这个问题。<h3 id="Lock和synchronized的区别"><a href="#Lock和synchronized的区别" class="headerlink" title="Lock和synchronized的区别"></a>Lock和synchronized的区别</h3></li>
+<li>synchronized不需要手动释放锁，执行完同步代码块就自动释放；而lock需要手动释放，调用unlock()方法。如果忘了就可能导致死锁；</li>
+<li>synchronized是java语言的关键字，是内置特性；而Lock是一个类。</li>
+</ol>
 
       
 
@@ -267,7 +250,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">redis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">多线程</a>
         		</li>
       		
 		</ul>
@@ -323,7 +306,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/31/redis相关/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/31/多线程相关/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -337,18 +320,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/31/多线程相关/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          多线程相关
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/15/javaWeb相关知识/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">javaWeb相关知识</div>
+    <a href="/2018/08/31/redis相关/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redis相关</div>
       <i class="icon-circle-right"></i>
     </a>
   
